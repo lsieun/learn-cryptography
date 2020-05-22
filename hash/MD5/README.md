@@ -2,7 +2,9 @@
 
 The goal of MD5, specified in RFC 1321, or any secure hashing algorithm, is to reduce **an arbitrarily sized** input into **an n-bit hash** in such a way that it is very unlikely that two messages, regardless of length or content, produce identical hashes — that is, collide — and that it is impossible to specifically reverse engineer such a collision. For MD5, `n = 128` bits. This means that there are 2<sup>128</sup> possible MD5 hashes. Although the input space is vastly larger than this, 2<sup>128</sup> makes it highly unlikely that two messages will share the same MD5 hash. More importantly, it should be impossible, assuming that MD5 hashes are evenly, randomly distributed, for an attacker to compute a useful message that collides with another by way of brute force.
 
-MD5 operates on **512-bit** (64-byte) blocks of input.<sub>笔记：input是512 bit大小</sub> Each block is reduced to a **128-bit** (16-byte) hash.<sub>笔记：最终的hash值是128 bit。</sub> Obviously, with such a 4:1 ratio of input blocks to output blocks, there will be at least a one in four chance of a collision. The challenge that MD5’s designer faced is making it difficult or impossible to work backward to find one.
+MD5 operates on **512-bit** (64-byte) blocks of input.<sub>笔记：input是512 bit大小</sub> Each block is reduced to a **128-bit** (16-byte) hash.<sub>笔记：最终的hash值是128 bit。</sub> Obviously, with such a `4:1` ratio of input blocks to output blocks, there will be at least a one in four chance of a collision. The challenge that MD5’s designer faced is making it difficult or impossible to work backward to find one.
+
+> 笔记：MD5的input block是64 byte，输出是16 byte。
 
 If the message to be hashed is greater than 512 bits, each 512-bit block is hashed independently and the hashes are added together, being allowed to overflow, and the result is the final sum. This obviously creates more potential for collisions.
 
